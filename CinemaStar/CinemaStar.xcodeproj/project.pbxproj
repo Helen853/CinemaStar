@@ -19,6 +19,8 @@
 		EDACC5692BD6902000E0EB72 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC5682BD6902000E0EB72 /* AppCoordinator.swift */; };
 		EDACC56B2BD692FA00E0EB72 /* CinemaCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC56A2BD692FA00E0EB72 /* CinemaCoordinator.swift */; };
 		EDACC56E2BD6960400E0EB72 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC56D2BD6960400E0EB72 /* Builder.swift */; };
+		EDACC5782BD69EF100E0EB72 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC5772BD69EF100E0EB72 /* MainViewModel.swift */; };
+		EDACC57A2BD69F1600E0EB72 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC5792BD69F1600E0EB72 /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		EDACC5682BD6902000E0EB72 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EDACC56A2BD692FA00E0EB72 /* CinemaCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCoordinator.swift; sourceTree = "<group>"; };
 		EDACC56D2BD6960400E0EB72 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		EDACC5772BD69EF100E0EB72 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		EDACC5792BD69F1600E0EB72 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +97,9 @@
 		EDACC5612BD68C5800E0EB72 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				EDACC54B2BD688FD00E0EB72 /* MainViewController.swift */,
+				EDACC5762BD69E2D00E0EB72 /* ViewModel */,
+				EDACC5752BD69E2600E0EB72 /* Model */,
+				EDACC5742BD69E1C00E0EB72 /* View */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -101,7 +107,9 @@
 		EDACC5622BD68C6C00E0EB72 /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
-				EDACC5632BD68CAB00E0EB72 /* FilmDetailsViewController.swift */,
+				EDACC5732BD69E0600E0EB72 /* ViewModel */,
+				EDACC5722BD69DF900E0EB72 /* Model */,
+				EDACC56F2BD69DD800E0EB72 /* View */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
@@ -123,6 +131,52 @@
 				EDACC56D2BD6960400E0EB72 /* Builder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		EDACC56F2BD69DD800E0EB72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EDACC5632BD68CAB00E0EB72 /* FilmDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EDACC5722BD69DF900E0EB72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDACC5732BD69E0600E0EB72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EDACC5792BD69F1600E0EB72 /* DetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EDACC5742BD69E1C00E0EB72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EDACC54B2BD688FD00E0EB72 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EDACC5752BD69E2600E0EB72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDACC5762BD69E2D00E0EB72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EDACC5772BD69EF100E0EB72 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,12 +295,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDACC5782BD69EF100E0EB72 /* MainViewModel.swift in Sources */,
 				EDACC54C2BD688FD00E0EB72 /* MainViewController.swift in Sources */,
 				EDACC5672BD68FD600E0EB72 /* BaseCoordinator.swift in Sources */,
 				EDACC5482BD688FD00E0EB72 /* AppDelegate.swift in Sources */,
 				EDACC56B2BD692FA00E0EB72 /* CinemaCoordinator.swift in Sources */,
 				EDACC5522BD688FD00E0EB72 /* CinemaStar.xcdatamodeld in Sources */,
 				EDACC56E2BD6960400E0EB72 /* Builder.swift in Sources */,
+				EDACC57A2BD69F1600E0EB72 /* DetailsViewModel.swift in Sources */,
 				EDACC54A2BD688FD00E0EB72 /* SceneDelegate.swift in Sources */,
 				EDACC5642BD68CAB00E0EB72 /* FilmDetailsViewController.swift in Sources */,
 				EDACC5692BD6902000E0EB72 /* AppCoordinator.swift in Sources */,

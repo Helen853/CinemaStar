@@ -5,5 +5,5 @@ import UIKit
 
 /// Главный экран с фильмами
 final class MainViewController: UIViewController {
-    
+    var mainViewModel: MainViewModelProtocol?
 }

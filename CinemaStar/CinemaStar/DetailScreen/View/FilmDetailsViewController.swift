@@ -4,4 +4,6 @@
 import UIKit
 
 /// Экран с деталями фильма
-final class FilmDetailsViewController: UIViewController {}
+final class FilmDetailsViewController: UIViewController {
+    var detailsViewModel: DetailsViewModelProtocol?
+}
