@@ -4,4 +4,6 @@
 import UIKit
 
 /// Главный экран с фильмами
-final class MainViewController: UIViewController {}
+final class MainViewController: UIViewController {
+    
+}
