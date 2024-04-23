@@ -5,7 +5,10 @@ import UIKit
 
 final class Builder {
     func makeMainViewController() -> MainViewController {
+        let networkService = NetworkService()
+        let mainViewModel = MainViewModel(networkService: networkService)
         let mainViewController = MainViewController()
+        mainViewController.mainViewModel = mainViewModel
         return mainViewController
     }
 
