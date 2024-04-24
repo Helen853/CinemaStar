@@ -11,10 +11,21 @@ final class CinemaCoordinator: BaseCoordinator {
         showCinema()
     }
 
+    func setRootViewController(view: UIViewController) {
+        rootViewController = UINavigationController(rootViewController: view)
+    }
+
     func showCinema() {
-        let mainViewController = Builder().makeMainViewController()
+        let coordinator = CinemaCoordinator()
+        let mainViewController = Builder().makeMainViewController(coordinator: coordinator)
         let rootViewController = UINavigationController(rootViewController: mainViewController)
         setAsRoot​(​_​: rootViewController)
         self.rootViewController = rootViewController
+    }
+
+    func showDetailFilm() {
+        let detailViewController = Builder().makeDetailViewController()
+        showCinema()
+        rootViewController?.pushViewController(detailViewController, animated: true)
     }
 }

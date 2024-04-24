@@ -10,4 +10,15 @@ struct AppConstants {
     static let cinemaTitle = "CINEMA STAR"
     static let inter = "Inter"
     static let interBold = "Inter-Bold"
+
+    static let infoIdentifier = "InfoIdentifier"
+    static let actorIdentifier = "ActorIdentifier"
+    static let recomendationIdentifier = "CiIdentifier"
+    static let actorCollectionIdentifier = "ActorsCollectionViewCell"
+    static let see = "Смотреть"
+    static let actorText = "Актеры и съемочная группа"
+    static let languge = "Язык"
+    static let notLanguage = "Язык не установлен"
+    static let lookText = "Смотрите также"
+    static let reccommenationCollectionIdentifier = "RecommendationCollectionViewCell"
 }

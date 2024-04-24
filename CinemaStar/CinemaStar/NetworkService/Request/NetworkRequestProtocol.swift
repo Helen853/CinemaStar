@@ -1,4 +1,4 @@
-// NetworkRequest.swift
+// NetworkRequestProtocol.swift
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
@@ -18,17 +18,23 @@ extension NetworkRequest {
             }
             guard let data = data else { return }
             do {
-                let result = try JSONDecoder().decode(FilmsDTO.self, from: data)
-                let res = result.docs.map { Films(dto: $0) }
+                guard let result = self.decode(data) as? [Films] else { return }
                 print([result])
-                completion(.success(res))
-            } catch {
-                completion(.failure(error))
+                completion(.success(result))
             }
         }.resume()
     }
 
-//    func getImage(request: URLRequest, completion: @escaping(UIImage?) -> Void) {
+//    func getImage(name:, completion: @escaping(UIImage?) -> Void) {
 //
 //    }
+
+    func loadImage(url: URLRequest, complition: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let config = URLSessionConfiguration.default
+        config.requestCachePolicy = .reloadIgnoringLocalCacheData
+        config.urlCache = nil
+
+        let sessin = URLSession(configuration: config)
+        sessin.dataTask(with: url, completionHandler: complition).resume()
+    }
 }

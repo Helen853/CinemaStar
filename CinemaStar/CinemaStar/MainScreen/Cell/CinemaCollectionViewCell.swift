@@ -15,14 +15,18 @@ final class CinemaCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupImage()
-        configureLable()
+        configureLabel()
+        configureImageConstraint()
+        configureLabelConstraint()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupImage()
-        configureLable()
+        configureLabel()
+        configureImageConstraint()
+        configureLabelConstraint()
     }
 
     // MARK: - Public Methods
@@ -41,25 +45,33 @@ final class CinemaCollectionViewCell: UICollectionViewCell {
 
     private func setupImage() {
         contentView.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
-        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        imageView.isUserInteractionEnabled = true
     }
 
-    private func configureLable() {
-        imageView.addSubview(titleLabel)
+    private func configureLabel() {
+        contentView.addSubview(titleLabel)
         titleLabel.textColor = .white
         titleLabel.numberOfLines = 2
         titleLabel.font = UIFont(name: AppConstants.inter, size: 16)
         titleLabel.textAlignment = .left
+    }
+
+    private func configureImageConstraint() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.isUserInteractionEnabled = true
+    }
+
+    private func configureLabelConstraint() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 }

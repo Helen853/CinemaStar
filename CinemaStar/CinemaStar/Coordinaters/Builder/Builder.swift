@@ -4,9 +4,8 @@
 import UIKit
 
 final class Builder {
-    func makeMainViewController() -> MainViewController {
-        let networkService = NetworkService()
-        let mainViewModel = MainViewModel(networkService: networkService)
+    func makeMainViewController(coordinator: CinemaCoordinator) -> MainViewController {
+        let mainViewModel = MainViewModel(coordinator: coordinator)
         let mainViewController = MainViewController()
         mainViewController.mainViewModel = mainViewModel
         return mainViewController
@@ -14,6 +13,8 @@ final class Builder {
 
     func makeDetailViewController() -> FilmDetailsViewController {
         let detailsViewController = FilmDetailsViewController()
+        let detailViewModel = DetailsViewModel()
+        detailsViewController.detailsViewModel = detailViewModel
         return detailsViewController
     }
 }

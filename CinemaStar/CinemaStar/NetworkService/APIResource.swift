@@ -6,7 +6,6 @@ import Foundation
 /// Протокол для апи ресурса
 protocol APIResource {
     associatedtype ModelType: Decodable
-    var methodPath: String { get }
     var filter: String? { get }
 }
 
@@ -15,7 +14,6 @@ extension APIResource {
     var request: URLRequest? {
         // URL-адрес API
         var components = URLComponents(string: "https://api.kinopoisk.dev/v1.4/movie/search")
-        components?.path = methodPath
         components?.queryItems = [URLQueryItem(name: "query", value: "история")]
         guard let req = components?.url else { return nil }
         var request = URLRequest(url: req)

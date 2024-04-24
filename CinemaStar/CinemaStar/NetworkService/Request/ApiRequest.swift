@@ -12,16 +12,18 @@ class APIRequest<Resource: APIResource> {
     }
 }
 
+// MARK: - Extension APIRequest + NetworkRequest
+
 extension APIRequest: NetworkRequest {
     func decode(_ data: Data) -> [Films]? {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .secondsSince1970
-        let result = try? JSONDecoder().decode(FilmsDTO.self, from: data)
+        let result = try? decoder.decode(FilmsDTO.self, from: data)
         let res = result?.docs.map { Films(dto: $0) }
         return res
     }
 
     func execute(withCompletion completion: @escaping (Result<[Films], Error>) -> Void) {
-        print("")
+        guard let resource = resource.request else { return }
+        getFilms(request: resource, completion: completion)
     }
 }

@@ -8,6 +8,7 @@ final class MainViewController: UIViewController {
     private let titleLabel = UILabel()
     private var films: [Films] = []
     private var collectionView: UICollectionView?
+    static var shared = MainViewController()
 
     var mainViewModel: MainViewModelProtocol?
 
@@ -113,13 +114,23 @@ extension MainViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.configureCell(model: films[indexPath.item])
+        mainViewModel?.getImage(index: indexPath.row, handler: { data in
+            guard let image = UIImage(data: data) else { return }
+            DispatchQueue.main.async {
+                cell.configureImage(image: image)
+            }
+        })
         return cell
     }
 }
 
 // MARK: - Extension MainViewController + UICollectionViewDelegate
 
-extension MainViewController: UICollectionViewDelegate {}
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        mainViewModel?.showDetail()
+    }
+}
 
 // MARK: - Extension MainViewController + UICollectionViewDelegateFlowLayout
 
