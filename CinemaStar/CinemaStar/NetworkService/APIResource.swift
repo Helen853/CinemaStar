@@ -37,3 +37,15 @@ struct FilmsResource: APIResource {
 
     var queryItems: URLQueryItem?
 }
+
+/// Модель запроса для детального фильма
+struct FilmsDetailResource: APIResource {
+    typealias ModelType = MovieDTO
+    var id: Int
+
+    var methodPath: String {
+        "/\(String(describing: id))"
+    }
+
+    var queryItems: URLQueryItem?
+}

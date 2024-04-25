@@ -125,7 +125,8 @@ extension MainViewController: UICollectionViewDataSource {
 
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        mainViewModel?.showDetail()
+        guard let idFilm = films?[indexPath.item].id else { return }
+        mainViewModel?.showDetail(id: idFilm)
     }
 }
 

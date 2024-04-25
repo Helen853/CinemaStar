@@ -42,8 +42,6 @@ final class CinemaCollectionViewCell: UICollectionViewCell {
         titleLabel.text = "\(model.name) \n ⭐️ \(rating)"
     }
 
-    func configureImage(image: UIImage) {}
-
     // MARK: - Private Methods
 
     private func setupImage() {

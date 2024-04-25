@@ -4,16 +4,15 @@
 import Foundation
 
 protocol DetailsViewModelProtocol {
-    var filmsLoaded: ((FilmsDetail) -> Void)? { get set }
+    var filmsLoaded: ((FilmsDetail?) -> Void)? { get set }
     var coordinator: CinemaCoordinator? { get set }
     func callService()
 }
 
 final class DetailsViewModel {
-    var filmsLoaded: ((FilmsDetail) -> Void)?
-    var films: FilmsDetail?
+    var filmsLoaded: ((FilmsDetail?) -> Void)?
+    var filmsDetail: FilmsDetail?
     var coordinator: CinemaCoordinator?
-    var resource = FilmsResource()
     var idFilm: Int
 
     init(coordinator: CinemaCoordinator, idFilm: Int) {
@@ -22,17 +21,16 @@ final class DetailsViewModel {
     }
 }
 
-// extension DetailsViewModel: DetailsViewModelProtocol {
-//
-//    func callService() {
-//        resource.id = idFilm
-//        let request = APIRequest(resource: resource)
-//        request.execute { [weak self] response in
-//            guard let response else { return }
-//            response.docs.forEach {
-//                self?.films?.append(Films(dto: $0))
-//            }
-//            self?.filmsLoaded?(self?.films)
-//    }
-//
-// }
+extension DetailsViewModel: DetailsViewModelProtocol {
+    func callService() {
+        var resource = FilmsDetailResource(id: idFilm)
+        let request = APIRequest(resource: resource)
+
+        request.execute { [weak self] movieDTO in
+            guard let dto = movieDTO else { return }
+            let film = FilmsDetail(dto: dto)
+            self?.filmsDetail = film
+            self?.filmsLoaded?(self?.filmsDetail)
+        }
+    }
+}

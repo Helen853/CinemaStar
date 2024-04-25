@@ -12,7 +12,7 @@ protocol NetworkRequest: AnyObject {
 extension NetworkRequest {
     func getFilms(url: URL, completion: @escaping (ModelType?) -> Void) {
         var request = URLRequest(url: url)
-        request.setValue("W1DJ0J7-2KV4JBC-HRQH66X-JTVVYXG", forHTTPHeaderField: "X-API-KEY")
+        request.setValue("ETKDY4P-Q024W58-Q4RRSYJ-Y72CWZR", forHTTPHeaderField: "X-API-KEY")
         URLSession.shared.dataTask(with: request) { [self] data, _, _ in
             guard let data = data else { return }
             DispatchQueue.global().async {

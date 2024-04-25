@@ -8,4 +8,5 @@ struct FilmDTO: Codable {
     let name: String
     let rating: RatingDTO
     let poster: ImageDTO
+    let id: Int
 }

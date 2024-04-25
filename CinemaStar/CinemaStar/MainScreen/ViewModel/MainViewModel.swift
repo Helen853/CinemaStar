@@ -7,7 +7,7 @@ protocol MainViewModelProtocol {
     var filmsLoaded: (([Films]?) -> Void)? { get set }
     var coordinator: CinemaCoordinator? { get set }
     func callService()
-    func showDetail()
+    func showDetail(id: Int)
 }
 
 final class MainViewModel {
@@ -21,8 +21,8 @@ final class MainViewModel {
 }
 
 extension MainViewModel: MainViewModelProtocol {
-    func showDetail() {
-        coordinator?.showDetailFilm()
+    func showDetail(id: Int) {
+        coordinator?.showDetailFilm(id: id)
     }
 
     func callService() {

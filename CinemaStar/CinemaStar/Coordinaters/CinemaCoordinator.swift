@@ -23,8 +23,8 @@ final class CinemaCoordinator: BaseCoordinator {
         self.rootViewController = rootViewController
     }
 
-    func showDetailFilm() {
-        let detailViewController = Builder().makeDetailViewController()
+    func showDetailFilm(id: Int) {
+        let detailViewController = Builder().makeDetailViewController(id: id)
         showCinema()
         rootViewController?.pushViewController(detailViewController, animated: true)
     }

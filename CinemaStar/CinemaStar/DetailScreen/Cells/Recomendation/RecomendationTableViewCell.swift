@@ -34,8 +34,7 @@ final class RecomendationTableViewCell: UITableViewCell {
     // MARK: - Public Methods
 
     func configureCell(model: FilmsDetail) {
-        setupUi()
-        setupCinstraint()
+        film = model
     }
 
     // MARK: - Private Methods
@@ -76,7 +75,7 @@ final class RecomendationTableViewCell: UITableViewCell {
         layout.minimumLineSpacing = 12
         layout.minimumInteritemSpacing = 12
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 60, height: 96)
+        layout.itemSize = CGSize(width: 170, height: 240)
         return layout
     }
 
@@ -88,17 +87,18 @@ final class RecomendationTableViewCell: UITableViewCell {
 
     private func configureCollectionConstraint() {
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
-        collectionView?.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-        collectionView?.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        collectionView?.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        collectionView?.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        collectionView?.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8)
+            .isActive = true
+        collectionView?.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
+        collectionView?.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        collectionView?.heightAnchor.constraint(equalToConstant: 240).isActive = true
         collectionView?.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 }
 
 extension RecomendationTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        film?.recommendedMovies.count ?? 1
+        film?.similarMovies?.count ?? 1
     }
 
     func collectionView(
@@ -110,7 +110,7 @@ extension RecomendationTableViewCell: UICollectionViewDataSource {
             for: indexPath
         ) as? RecommendationCollectionViewCell
         else { return UICollectionViewCell() }
-        guard let similarMovie = film?.recommendedMovies[indexPath.item] else { return cell }
+        guard let similarMovie = film?.similarMovies?[indexPath.item] else { return cell }
         cell.configure(cinema: similarMovie)
         return cell
     }

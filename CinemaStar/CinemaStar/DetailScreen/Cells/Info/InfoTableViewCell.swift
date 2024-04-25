@@ -10,45 +10,48 @@ final class InfoTableViewCell: UITableViewCell {
     private let button = UIButton()
     private let descriptionLabel = UILabel()
     private let infoLabel = UILabel()
+    var imageRequest: ImageRequest?
 
     // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .clear
-        setupImage()
-        configureLabel()
-        configureButton()
-        configureInfo()
-        configureDescriprion()
+        setupUi()
         setupConsctraint()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupImage()
-        configureLabel()
-        configureButton()
-        configureInfo()
-        configureDescriprion()
+        setupUi()
         setupConsctraint()
     }
 
     // MARK: - Public Methods
 
     func configureCell(model: FilmsDetail) {
-        let rating = String(format: "%.1f", floor(model.rating * 10) / 10)
+        guard let url = URL(string: model.poster.url) else { return }
+        imageRequest = ImageRequest(url: url)
+        imageRequest?.execute(withCompletion: { [weak self] image in
+            self?.filmImageView.image = image
+        })
+        let rating = String(format: "%.1f", floor(model.rating.kp * 10) / 10)
         nameLabel.text = "\(model.name) \n ⭐️ \(rating)"
         descriptionLabel.text = model.description
-        infoLabel.text = "\(model.year)/ \(model.country)/ \(model.type)"
-    }
-
-    func configureImage(image: UIImage) {
-        filmImageView.image = image
+        guard let country = model.countries else { return }
+        infoLabel.text = "\(model.year)/ \(country)/ \(model.type)"
     }
 
     // MARK: - Private Methods
+
+    private func setupUi() {
+        setupImage()
+        configureLabel()
+        configureButton()
+        configureInfo()
+        configureDescriprion()
+    }
 
     private func setupConsctraint() {
         configureImageConstraint()
@@ -68,25 +71,24 @@ final class InfoTableViewCell: UITableViewCell {
     private func configureLabel() {
         contentView.addSubview(nameLabel)
         nameLabel.textColor = .white
-        nameLabel.numberOfLines = 0
-        nameLabel.font = UIFont(name: AppConstants.inter, size: 16)
+        nameLabel.numberOfLines = 2
+        nameLabel.font = UIFont(name: AppConstants.interBold, size: 18)
         nameLabel.textAlignment = .left
     }
 
     private func configureImageConstraint() {
         filmImageView.translatesAutoresizingMaskIntoConstraints = false
-        filmImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        filmImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 204).isActive = true
         filmImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        filmImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
+        filmImageView.widthAnchor.constraint(equalToConstant: 170).isActive = true
         filmImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        filmImageView.isUserInteractionEnabled = true
     }
 
     private func configureLabelConstraint() {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.leadingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: 16).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 129).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 45).isActive = true
         nameLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
 
@@ -104,14 +106,12 @@ final class InfoTableViewCell: UITableViewCell {
         button.topAnchor.constraint(equalTo: filmImageView.bottomAnchor, constant: 16).isActive = true
         button.widthAnchor.constraint(equalToConstant: 358).isActive = true
         button.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        // button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 
     private func configureDescriprion() {
         contentView.addSubview(descriptionLabel)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.text = "descr"
         descriptionLabel.font = UIFont(name: AppConstants.inter, size: 14)
         descriptionLabel.textAlignment = .left
     }
@@ -121,15 +121,13 @@ final class InfoTableViewCell: UITableViewCell {
         descriptionLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 16).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 16).isActive = true
         descriptionLabel.widthAnchor.constraint(equalToConstant: 330).isActive = true
     }
 
     private func configureInfo() {
         contentView.addSubview(infoLabel)
-        infoLabel.textColor = UIColor(red: 1 / 255, green: 1 / 255, blue: 1 / 255, alpha: 0.41)
-        infoLabel.text = "2017"
-        infoLabel.font = UIFont(name: AppConstants.inter, size: 14)
+        infoLabel.textColor = .gray
+        infoLabel.font = UIFont(name: AppConstants.interBold, size: 14)
         infoLabel.textAlignment = .left
     }
 

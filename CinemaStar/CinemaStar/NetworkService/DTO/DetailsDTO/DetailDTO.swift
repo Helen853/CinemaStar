@@ -3,7 +3,7 @@
 
 import Foundation
 
-/// Movie data fron network
+/// Модель для детального фильма
 struct MovieDTO: Codable {
     let id: Int
     let poster: Poster
@@ -18,28 +18,28 @@ struct MovieDTO: Codable {
     let similarMovies: [SimilarMovie]?
 }
 
-/// Movie poster data
+/// Картинка фильма
 struct Poster: Codable {
-    let url: String?
+    let url: String
 }
 
-/// Movie country data
+/// Cтрана
 struct Country: Codable {
     let name: String
 }
 
-/// Movie rating data
+/// Рейтинг
 struct Rating: Codable {
     let kp: Double
 }
 
-///
+/// Актеры
 struct Person: Codable {
     let photo: String
     let name: String
 }
 
-/// Similar movie data
+/// Рекомендации
 struct SimilarMovie: Codable {
     let name: String
     let poster: Poster

@@ -11,10 +11,11 @@ final class Builder {
         return mainViewController
     }
 
-    func makeDetailViewController() -> FilmDetailsViewController {
+    func makeDetailViewController(id: Int) -> FilmDetailsViewController {
         let detailsViewController = FilmDetailsViewController()
         let cinemaCoordinator = CinemaCoordinator()
-        let detailViewModel = DetailsViewModel(coordinator: cinemaCoordinator, idFilm: 533_055)
+        let detailViewModel = DetailsViewModel(coordinator: cinemaCoordinator, idFilm: id)
+        detailsViewController.detailsViewModel = detailViewModel
         return detailsViewController
     }
 }

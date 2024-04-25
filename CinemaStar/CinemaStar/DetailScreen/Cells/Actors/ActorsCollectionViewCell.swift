@@ -7,6 +7,7 @@ import UIKit
 final class ActorsCollectionViewCell: UICollectionViewCell {
     private let nameLabel = UILabel()
     private let photoImageView = UIImageView()
+    var imageRequest: ImageRequest?
 
     // MARK: - Initializers
 
@@ -26,11 +27,12 @@ final class ActorsCollectionViewCell: UICollectionViewCell {
     // MARK: - Public Methods
 
     func configure(actors: Person) {
+        guard let url = URL(string: actors.photo) else { return }
+        imageRequest = ImageRequest(url: url)
+        imageRequest?.execute(withCompletion: { [weak self] image in
+            self?.photoImageView.image = image
+        })
         nameLabel.text = actors.name.replacingOccurrences(of: " ", with: "\n")
-    }
-
-    func configureImage(image: UIImage) {
-        photoImageView.image = image
     }
 
     // MARK: - Private Methods
@@ -48,6 +50,7 @@ final class ActorsCollectionViewCell: UICollectionViewCell {
     private func configureLabel() {
         contentView.addSubview(nameLabel)
         nameLabel.textColor = .white
+        nameLabel.numberOfLines = 2
         nameLabel.font = UIFont(name: AppConstants.inter, size: 8)
         nameLabel.textAlignment = .center
     }
@@ -69,5 +72,6 @@ final class ActorsCollectionViewCell: UICollectionViewCell {
         photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 6).isActive = true
         photoImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+        photoImageView.heightAnchor.constraint(equalToConstant: 72.83).isActive = true
     }
 }

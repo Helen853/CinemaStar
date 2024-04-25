@@ -33,11 +33,9 @@ final class ActorTableViewCell: UITableViewCell {
     // MARK: - Public Methods
 
     func configureCell(model: FilmsDetail) {
-        nameLabel.text = model.name
-        languageLabel.text = model.language
+        languageLabel.text = model.spokenLanguages?.first
+        film = model
     }
-
-    func configureImage(image: UIImage) {}
 
     // MARK: - Private Methods
 
@@ -66,7 +64,7 @@ final class ActorTableViewCell: UITableViewCell {
     private func configureLanguageTitle() {
         contentView.addSubview(languageTitleLabel)
         languageTitleLabel.textColor = .white
-        languageLabel.text = AppConstants.languge
+        languageTitleLabel.text = AppConstants.languge
         languageTitleLabel.font = UIFont(name: AppConstants.interBold, size: 14)
         languageTitleLabel.textAlignment = .left
     }
@@ -130,7 +128,7 @@ final class ActorTableViewCell: UITableViewCell {
 
 extension ActorTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        film?.actors.count ?? 1
+        film?.persons?.count ?? 1
     }
 
     func collectionView(
@@ -141,7 +139,7 @@ extension ActorTableViewCell: UICollectionViewDataSource {
             withReuseIdentifier: AppConstants.actorCollectionIdentifier,
             for: indexPath
         ) as? ActorsCollectionViewCell else { return UICollectionViewCell() }
-        guard let person = film?.actors[indexPath.item] else { return cell }
+        guard let person = film?.persons?[indexPath.row] else { return cell }
         cell.configure(actors: person)
         return cell
     }

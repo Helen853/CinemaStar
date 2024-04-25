@@ -22,6 +22,19 @@ final class FilmDetailsViewController: UIViewController {
         registerCell()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        detailsViewModel?.callService()
+        detailsViewModel?.filmsLoaded = { [weak self] response in
+            self?.details = response
+            Task {
+                await MainActor.run {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setGradient()
