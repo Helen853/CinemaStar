@@ -27,34 +27,3 @@ extension APIResource {
         return components.url
     }
 }
-
-/// Модель для запроса фильма
-struct FilmsResource: APIResource {
-    // тип объекта
-    typealias ModelType = FilmsDTO
-
-    // путь
-    var methodPath: String {
-        "/search"
-    }
-
-    // параметры запроса
-    var queryItems: URLQueryItem?
-}
-
-/// Модель запроса для детального фильма
-struct FilmsDetailResource: APIResource {
-    // тип объекта
-    typealias ModelType = MovieDTO
-
-    // идентификатор для ресурса запроса
-    var id: Int
-
-    // путь
-    var methodPath: String {
-        "/\(String(describing: id))"
-    }
-
-    // парметры запроса
-    var queryItems: URLQueryItem?
-}
