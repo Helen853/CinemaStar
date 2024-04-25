@@ -10,6 +10,8 @@
 		ED2A38852BD832F80000737B /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A38842BD832F80000737B /* NetworkRequestProtocol.swift */; };
 		ED2A38882BD8388B0000737B /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A38872BD8388B0000737B /* ImageRequest.swift */; };
 		ED2A388A2BD838AB0000737B /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A38892BD838AB0000737B /* ApiRequest.swift */; };
+		ED72D39F2BDA885E00BF29AF /* FilmsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72D39E2BDA885E00BF29AF /* FilmsResource.swift */; };
+		ED72D3A12BDA887500BF29AF /* FilmsDetailResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72D3A02BDA887500BF29AF /* FilmsDetailResource.swift */; };
 		ED801EC92BD913830099C11A /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED801EC82BD913830099C11A /* CellType.swift */; };
 		ED801ECE2BD91BD70099C11A /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED801ECD2BD91BD70099C11A /* Detail.swift */; };
 		ED801ED02BD91C720099C11A /* DetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED801ECF2BD91C720099C11A /* DetailDTO.swift */; };
@@ -49,6 +51,8 @@
 		ED2A38842BD832F80000737B /* NetworkRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestProtocol.swift; sourceTree = "<group>"; };
 		ED2A38872BD8388B0000737B /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		ED2A38892BD838AB0000737B /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		ED72D39E2BDA885E00BF29AF /* FilmsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsResource.swift; sourceTree = "<group>"; };
+		ED72D3A02BDA887500BF29AF /* FilmsDetailResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsDetailResource.swift; sourceTree = "<group>"; };
 		ED801EC82BD913830099C11A /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		ED801ECD2BD91BD70099C11A /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		ED801ECF2BD91C720099C11A /* DetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDTO.swift; sourceTree = "<group>"; };
@@ -115,6 +119,16 @@
 				EDACC5552BD688FD00E0EB72 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		ED72D39D2BDA884100BF29AF /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EDACC5802BD6D6FD00E0EB72 /* APIResource.swift */,
+				ED72D39E2BDA885E00BF29AF /* FilmsResource.swift */,
+				ED72D3A02BDA887500BF29AF /* FilmsDetailResource.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		ED801EC52BD913540099C11A /* Cells */ = {
@@ -289,9 +303,9 @@
 		EDACC57D2BD6D6AE00E0EB72 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				ED72D39D2BDA884100BF29AF /* Resource */,
 				ED2A38862BD838770000737B /* Request */,
 				EDACC5872BD6EDAC00E0EB72 /* DTO */,
-				EDACC5802BD6D6FD00E0EB72 /* APIResource.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -477,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDACC5782BD69EF100E0EB72 /* MainViewModel.swift in Sources */,
+				ED72D39F2BDA885E00BF29AF /* FilmsResource.swift in Sources */,
 				ED2A38882BD8388B0000737B /* ImageRequest.swift in Sources */,
 				EDACC58D2BD6EE2800E0EB72 /* FilmDTO.swift in Sources */,
 				EDACC57C2BD6C45600E0EB72 /* Film.swift in Sources */,
@@ -485,6 +500,7 @@
 				EDACC54C2BD688FD00E0EB72 /* MainViewController.swift in Sources */,
 				ED801ED02BD91C720099C11A /* DetailDTO.swift in Sources */,
 				EDACC58F2BD6EE8B00E0EB72 /* ImageDTO.swift in Sources */,
+				ED72D3A12BDA887500BF29AF /* FilmsDetailResource.swift in Sources */,
 				EDACC5832BD6E16400E0EB72 /* AppConstants.swift in Sources */,
 				ED2A38852BD832F80000737B /* NetworkRequestProtocol.swift in Sources */,
 				EDACC5812BD6D6FD00E0EB72 /* APIResource.swift in Sources */,
