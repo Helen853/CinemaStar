@@ -6,26 +6,28 @@ import Foundation
 /// Протокол для апи ресурса
 protocol APIResource {
     associatedtype ModelType: Decodable
-    var filter: String? { get }
+    var methodPath: String { get }
+    var queryItems: URLQueryItem? { get }
 }
 
 extension APIResource {
     // свойство с конфигурацией ЮРЛзапроса
-    var request: URLRequest? {
+    var url: URL? {
         // URL-адрес API
-        var components = URLComponents(string: "https://api.kinopoisk.dev/v1.4/movie/search")
-        components?.queryItems = [URLQueryItem(name: "query", value: "история")]
-        guard let req = components?.url else { return nil }
-        var request = URLRequest(url: req)
-        request.setValue("W1DJ0J7-2KV4JBC-HRQH66X-JTVVYXG", forHTTPHeaderField: "X-API-KEY")
-        return request
+        var components = URLComponents(string: "https://api.kinopoisk.dev/v1.4/movie") ?? URLComponents()
+        components.path += methodPath
+        if let queryItems {
+            components.queryItems = [queryItems]
+        }
+        return components.url
     }
 }
 
 /// Модель для запроса
 struct FilmsResource: APIResource {
-    typealias ModelType = Films
+    typealias ModelType = FilmsDTO
     var id: Int?
+
     var methodPath: String {
         guard let id = id else {
             return "/search"
@@ -33,7 +35,5 @@ struct FilmsResource: APIResource {
         return "/search/\(id)"
     }
 
-    var filter: String? {
-        id != nil ? "4707110" : nil
-    }
+    var queryItems: URLQueryItem?
 }

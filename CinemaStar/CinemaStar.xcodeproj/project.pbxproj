@@ -10,9 +10,6 @@
 		ED2A38852BD832F80000737B /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A38842BD832F80000737B /* NetworkRequestProtocol.swift */; };
 		ED2A38882BD8388B0000737B /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A38872BD8388B0000737B /* ImageRequest.swift */; };
 		ED2A388A2BD838AB0000737B /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A38892BD838AB0000737B /* ApiRequest.swift */; };
-		ED2A388C2BD85A180000737B /* LoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A388B2BD85A180000737B /* LoadService.swift */; };
-		ED2A388E2BD85A410000737B /* ProxyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A388D2BD85A410000737B /* ProxyService.swift */; };
-		ED2A38902BD85A5F0000737B /* ProxyServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A388F2BD85A5F0000737B /* ProxyServiceProtocol.swift */; };
 		ED801EC92BD913830099C11A /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED801EC82BD913830099C11A /* CellType.swift */; };
 		ED801ECE2BD91BD70099C11A /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED801ECD2BD91BD70099C11A /* Detail.swift */; };
 		ED801ED02BD91C720099C11A /* DetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED801ECF2BD91C720099C11A /* DetailDTO.swift */; };
@@ -52,9 +49,6 @@
 		ED2A38842BD832F80000737B /* NetworkRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestProtocol.swift; sourceTree = "<group>"; };
 		ED2A38872BD8388B0000737B /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		ED2A38892BD838AB0000737B /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
-		ED2A388B2BD85A180000737B /* LoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadService.swift; sourceTree = "<group>"; };
-		ED2A388D2BD85A410000737B /* ProxyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyService.swift; sourceTree = "<group>"; };
-		ED2A388F2BD85A5F0000737B /* ProxyServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyServiceProtocol.swift; sourceTree = "<group>"; };
 		ED801EC82BD913830099C11A /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		ED801ECD2BD91BD70099C11A /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		ED801ECF2BD91C720099C11A /* DetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDTO.swift; sourceTree = "<group>"; };
@@ -111,16 +105,6 @@
 				ED2A38892BD838AB0000737B /* ApiRequest.swift */,
 			);
 			path = Request;
-			sourceTree = "<group>";
-		};
-		ED2A38912BD85A710000737B /* Proxy */ = {
-			isa = PBXGroup;
-			children = (
-				ED2A388F2BD85A5F0000737B /* ProxyServiceProtocol.swift */,
-				ED2A388D2BD85A410000737B /* ProxyService.swift */,
-				ED2A388B2BD85A180000737B /* LoadService.swift */,
-			);
-			path = Proxy;
 			sourceTree = "<group>";
 		};
 		ED801EC52BD913540099C11A /* Cells */ = {
@@ -297,7 +281,6 @@
 		EDACC57D2BD6D6AE00E0EB72 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				ED2A38912BD85A710000737B /* Proxy */,
 				ED2A38862BD838770000737B /* Request */,
 				EDACC5872BD6EDAC00E0EB72 /* DTO */,
 				EDACC5802BD6D6FD00E0EB72 /* APIResource.swift */,
@@ -496,7 +479,6 @@
 				EDACC58F2BD6EE8B00E0EB72 /* ImageDTO.swift in Sources */,
 				EDACC5832BD6E16400E0EB72 /* AppConstants.swift in Sources */,
 				ED2A38852BD832F80000737B /* NetworkRequestProtocol.swift in Sources */,
-				ED2A388E2BD85A410000737B /* ProxyService.swift in Sources */,
 				EDACC5812BD6D6FD00E0EB72 /* APIResource.swift in Sources */,
 				ED801EDE2BD952D20099C11A /* ActorsCollectionViewCell.swift in Sources */,
 				ED801ED62BD926210099C11A /* RecomendationTableViewCell.swift in Sources */,
@@ -506,7 +488,6 @@
 				EDACC5482BD688FD00E0EB72 /* AppDelegate.swift in Sources */,
 				EDACC56B2BD692FA00E0EB72 /* CinemaCoordinator.swift in Sources */,
 				EDACC5522BD688FD00E0EB72 /* CinemaStar.xcdatamodeld in Sources */,
-				ED2A38902BD85A5F0000737B /* ProxyServiceProtocol.swift in Sources */,
 				EDACC56E2BD6960400E0EB72 /* Builder.swift in Sources */,
 				EDACC57A2BD69F1600E0EB72 /* DetailsViewModel.swift in Sources */,
 				ED801ED22BD920470099C11A /* InfoTableViewCell.swift in Sources */,
@@ -517,7 +498,6 @@
 				EDACC5852BD6E55600E0EB72 /* CinemaCollectionViewCell.swift in Sources */,
 				EDACC5642BD68CAB00E0EB72 /* FilmDetailsViewController.swift in Sources */,
 				EDACC5692BD6902000E0EB72 /* AppCoordinator.swift in Sources */,
-				ED2A388C2BD85A180000737B /* LoadService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

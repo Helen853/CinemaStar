@@ -6,7 +6,7 @@ import UIKit
 /// Главный экран с фильмами
 final class MainViewController: UIViewController {
     private let titleLabel = UILabel()
-    private var films: [Films] = []
+    private var films: [Films]? = []
     private var collectionView: UICollectionView?
     static var shared = MainViewController()
 
@@ -100,7 +100,7 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        films.count
+        films?.count ?? 0
     }
 
     func collectionView(
@@ -110,16 +110,13 @@ extension MainViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: AppConstants.cinemaIdentifier,
             for: indexPath
-        ) as? CinemaCollectionViewCell else {
+        ) as? CinemaCollectionViewCell,
+            let films = films
+        else {
             return UICollectionViewCell()
         }
+
         cell.configureCell(model: films[indexPath.item])
-        mainViewModel?.getImage(index: indexPath.row, handler: { data in
-            guard let image = UIImage(data: data) else { return }
-            DispatchQueue.main.async {
-                cell.configureImage(image: image)
-            }
-        })
         return cell
     }
 }

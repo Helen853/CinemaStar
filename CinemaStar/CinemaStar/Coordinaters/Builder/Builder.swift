@@ -13,8 +13,8 @@ final class Builder {
 
     func makeDetailViewController() -> FilmDetailsViewController {
         let detailsViewController = FilmDetailsViewController()
-        let detailViewModel = DetailsViewModel()
-        detailsViewController.detailsViewModel = detailViewModel
+        let cinemaCoordinator = CinemaCoordinator()
+        let detailViewModel = DetailsViewModel(coordinator: cinemaCoordinator, idFilm: 533_055)
         return detailsViewController
     }
 }

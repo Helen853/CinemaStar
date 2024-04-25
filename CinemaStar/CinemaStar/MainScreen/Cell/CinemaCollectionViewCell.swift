@@ -9,6 +9,7 @@ final class CinemaCollectionViewCell: UICollectionViewCell {
 
     private let imageView = UIImageView()
     private let titleLabel = UILabel()
+    var imageRequest: ImageRequest?
 
     // MARK: - Initializers
 
@@ -32,14 +33,16 @@ final class CinemaCollectionViewCell: UICollectionViewCell {
     // MARK: - Public Methods
 
     func configureCell(model: Films) {
-        imageView.image = UIImage(named: model.poster)
+        guard let url = URL(string: model.poster) else { return }
+        imageRequest = ImageRequest(url: url)
+        imageRequest?.execute(withCompletion: { [weak self] image in
+            self?.imageView.image = image
+        })
         let rating = String(format: "%.1f", floor(model.rating * 10) / 10)
         titleLabel.text = "\(model.name) \n ⭐️ \(rating)"
     }
 
-    func configureImage(image: UIImage) {
-        imageView.image = image
-    }
+    func configureImage(image: UIImage) {}
 
     // MARK: - Private Methods
 

@@ -4,7 +4,7 @@
 import Foundation
 import UIKit
 
-/// kil
+///  ImageRequest
 class ImageRequest {
     let url: URL
 
@@ -14,8 +14,8 @@ class ImageRequest {
 }
 
 extension ImageRequest: NetworkRequest {
-    func execute(withCompletion completion: @escaping (Result<[Films], Error>) -> Void) {
-        getFilms(request: URLRequest(url: url), completion: completion)
+    func execute(withCompletion completion: @escaping (UIImage?) -> Void) {
+        getFilms(url: url, completion: completion)
     }
 
     typealias ModelType = UIImage
