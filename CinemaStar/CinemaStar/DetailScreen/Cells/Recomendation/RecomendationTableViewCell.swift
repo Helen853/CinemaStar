@@ -10,7 +10,9 @@ final class RecomendationTableViewCell: UITableViewCell {
     private let titleLabel = UILabel()
     private var collectionView: UICollectionView?
 
-    var film: FilmsDetail? {
+    // MARK: - Private Properties
+
+    private var film: FilmsDetail? {
         didSet {
             collectionView?.reloadData()
         }
@@ -95,6 +97,8 @@ final class RecomendationTableViewCell: UITableViewCell {
         collectionView?.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 }
+
+// MARK: - Extension RecomendationTableViewCell + UICollectionViewDataSource
 
 extension RecomendationTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

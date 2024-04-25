@@ -3,7 +3,8 @@
 
 import Foundation
 
-/// film
+/// Картинка фильма
 struct ImageDTO: Codable {
+    // Юрл картинки
     let url: String
 }

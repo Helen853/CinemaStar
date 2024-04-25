@@ -107,6 +107,16 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		ED72D39C2BDA7A0900BF29AF /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EDACC54D2BD688FD00E0EB72 /* Main.storyboard */,
+				EDACC5532BD688FD00E0EB72 /* Assets.xcassets */,
+				EDACC5552BD688FD00E0EB72 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		ED801EC52BD913540099C11A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,18 +173,16 @@
 		EDACC5462BD688FD00E0EB72 /* CinemaStar */ = {
 			isa = PBXGroup;
 			children = (
-				EDACC5B02BD7E24200E0EB72 /* Extension */,
 				EDACC59B2BD78ECA00E0EB72 /* Font */,
+				EDACC5582BD688FD00E0EB72 /* Info.plist */,
+				ED72D39C2BDA7A0900BF29AF /* SupportingFiles */,
+				EDACC5B02BD7E24200E0EB72 /* Extension */,
 				EDACC5922BD6F0AA00E0EB72 /* CoreData */,
 				EDACC57D2BD6D6AE00E0EB72 /* NetworkService */,
 				EDACC5652BD68F7D00E0EB72 /* Coordinaters */,
 				EDACC5622BD68C6C00E0EB72 /* DetailScreen */,
 				EDACC5612BD68C5800E0EB72 /* MainScreen */,
 				EDACC5602BD6899200E0EB72 /* Delegate */,
-				EDACC54D2BD688FD00E0EB72 /* Main.storyboard */,
-				EDACC5532BD688FD00E0EB72 /* Assets.xcassets */,
-				EDACC5552BD688FD00E0EB72 /* LaunchScreen.storyboard */,
-				EDACC5582BD688FD00E0EB72 /* Info.plist */,
 			);
 			path = CinemaStar;
 			sourceTree = "<group>";

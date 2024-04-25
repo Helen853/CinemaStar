@@ -3,7 +3,7 @@
 
 import Foundation
 
-/// APIRequest
+/// Ресурс для запроса
 class APIRequest<Resource: APIResource> {
     let resource: Resource
 

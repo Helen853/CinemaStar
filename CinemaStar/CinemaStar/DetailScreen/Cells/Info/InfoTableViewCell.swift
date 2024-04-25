@@ -5,18 +5,22 @@ import UIKit
 
 /// Ячейка с информацией о фильме
 final class InfoTableViewCell: UITableViewCell {
+    // MARK: - Visual Components
+
     private let filmImageView = UIImageView()
     private let nameLabel = UILabel()
     private let button = UIButton()
     private let descriptionLabel = UILabel()
     private let infoLabel = UILabel()
-    var imageRequest: ImageRequest?
+
+    // MARK: - Private Properties
+
+    private var imageRequest: ImageRequest?
 
     // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .clear
         setupUi()
         setupConsctraint()
     }
@@ -46,6 +50,7 @@ final class InfoTableViewCell: UITableViewCell {
     // MARK: - Private Methods
 
     private func setupUi() {
+        contentView.backgroundColor = .clear
         setupImage()
         configureLabel()
         configureButton()

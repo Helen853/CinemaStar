@@ -3,13 +3,26 @@
 
 import Foundation
 
+/// Протокол для сетевого запроса
 protocol NetworkRequest: AnyObject {
+    /// Модель для типа объекта
     associatedtype ModelType
+    /// Декодирование данных
+    /// - Parameters:
+    /// - data: Данные
+    /// - Returns:
+    /// - Модель определенного типа
     func decode(_ data: Data) -> ModelType?
+    /// Выполнение запроса
     func execute(withCompletion completion: @escaping (ModelType?) -> Void)
 }
 
+// MARK: - Extension NetworkRequest
+
 extension NetworkRequest {
+    /// Загрузка фильма
+    /// - Parameters:
+    /// - url: Юрл-адрес запроса
     func getFilms(url: URL, completion: @escaping (ModelType?) -> Void) {
         var request = URLRequest(url: url)
         request.setValue("ETKDY4P-Q024W58-Q4RRSYJ-Y72CWZR", forHTTPHeaderField: "X-API-KEY")

@@ -9,7 +9,10 @@ final class CinemaCollectionViewCell: UICollectionViewCell {
 
     private let imageView = UIImageView()
     private let titleLabel = UILabel()
-    var imageRequest: ImageRequest?
+
+    // MARK: - Private Properties
+
+    private var imageRequest: ImageRequest?
 
     // MARK: - Initializers
 

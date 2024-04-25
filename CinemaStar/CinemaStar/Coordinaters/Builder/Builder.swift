@@ -3,7 +3,9 @@
 
 import UIKit
 
+/// Билдер для создание экранов
 final class Builder {
+    /// Создание главного экрана
     func makeMainViewController(coordinator: CinemaCoordinator) -> MainViewController {
         let mainViewModel = MainViewModel(coordinator: coordinator)
         let mainViewController = MainViewController()
@@ -11,6 +13,9 @@ final class Builder {
         return mainViewController
     }
 
+    /// Создание детального экрана
+    /// - Parameters:
+    ///  -id: Идентификтор ресурса
     func makeDetailViewController(id: Int) -> FilmDetailsViewController {
         let detailsViewController = FilmDetailsViewController()
         let cinemaCoordinator = CinemaCoordinator()

@@ -5,16 +5,28 @@ import Foundation
 
 /// Детальный фильм
 struct FilmsDetail {
+    // Картинка фильма
     let poster: Poster
+    // Наименование
     let name: String
+    // Рейтинг
     let rating: Rating
+    // Описание
     let description: String
+    // Год
     let year: Int
+    // Страна происхождения
     let countries: String?
+    // Тип фильма
     let type: String
+    // Актеры
     let persons: [Person]?
+    // Язык
     let spokenLanguages: [String]?
+    // Рекомендованные фильмы
     let similarMovies: [SimilarMovie]?
+
+    // MARK: - Initializers
 
     init(dto: MovieDTO) {
         poster = dto.poster
@@ -32,11 +44,11 @@ struct FilmsDetail {
 
 /// Тип фильма
 enum MovieType: String, Codable {
-    ///
+    /// фильм
     case movie
-    ///
-    case tvSeries = "tv-series"
-    /// 
+    /// Сериал
+    case tvSeries
+
     var typeDescription: String {
         switch self {
         case .movie:

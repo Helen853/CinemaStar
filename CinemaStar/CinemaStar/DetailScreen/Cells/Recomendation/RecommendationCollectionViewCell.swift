@@ -5,9 +5,14 @@ import UIKit
 
 /// Ячейка с рекомендованными фильмами
 final class RecommendationCollectionViewCell: UICollectionViewCell {
+    // MARK: - Visual Components
+
     private let titleLabel = UILabel()
     private let photoImageView = UIImageView()
-    var imageRequest: ImageRequest?
+
+    // MARK: - Private Properties
+
+    private var imageRequest: ImageRequest?
 
     // MARK: - Initializers
 

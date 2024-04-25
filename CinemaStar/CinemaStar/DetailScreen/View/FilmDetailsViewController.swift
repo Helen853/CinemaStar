@@ -5,16 +5,20 @@ import UIKit
 
 /// Экран с деталями фильма
 final class FilmDetailsViewController: UIViewController {
-    // MARK: - Public Properties
-
-    var detailsViewModel: DetailsViewModelProtocol?
-
     // MARK: - Visual Components
 
     private let tableView = UITableView()
     private let cellTypes: [DetailType] = [.info, .actor, .recomendation]
-    var details: FilmsDetail?
-    var filmID: Int?
+
+    // MARK: - Public Properties
+
+    var detailsViewModel: DetailsViewModelProtocol?
+
+    // MARK: - Private Properties
+
+    private var details: FilmsDetail?
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,17 @@ final class FilmDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         detailsViewModel?.callService()
+        loadFilms()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setGradient()
+    }
+
+    // MARK: - Private Methods
+
+    private func loadFilms() {
         detailsViewModel?.filmsLoaded = { [weak self] response in
             self?.details = response
             Task {
@@ -33,11 +48,6 @@ final class FilmDetailsViewController: UIViewController {
                 }
             }
         }
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        setGradient()
     }
 
     private func setGradient() {

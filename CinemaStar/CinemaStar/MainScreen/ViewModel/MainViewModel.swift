@@ -3,22 +3,33 @@
 
 import Foundation
 
+/// Протокол ViewModel для главного экрана
 protocol MainViewModelProtocol {
+    /// Передача загруженных данных
     var filmsLoaded: (([Films]?) -> Void)? { get set }
-    var coordinator: CinemaCoordinator? { get set }
+    /// Загрузка данных
     func callService()
+    /// Переход на детальный экран
     func showDetail(id: Int)
 }
 
+/// ViewModel главного экрана
 final class MainViewModel {
     var filmsLoaded: (([Films]?) -> Void)?
-    var films: [Films] = []
-    var coordinator: CinemaCoordinator?
+
+    // MARK: - Private Properties
+
+    private var films: [Films] = []
+    private var coordinator: CinemaCoordinator?
+
+    // MARK: - Initializers
 
     init(coordinator: CinemaCoordinator) {
         self.coordinator = coordinator
     }
 }
+
+// MARK: - Extension MainViewModel + MainViewModelProtocol
 
 extension MainViewModel: MainViewModelProtocol {
     func showDetail(id: Int) {

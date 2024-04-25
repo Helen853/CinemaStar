@@ -4,7 +4,7 @@
 import Foundation
 import UIKit
 
-///  ImageRequest
+///  Запрос картинки
 class ImageRequest {
     let url: URL
 
@@ -12,6 +12,8 @@ class ImageRequest {
         self.url = url
     }
 }
+
+// MARK: - Extension ImageRequest + NetworkRequest
 
 extension ImageRequest: NetworkRequest {
     func execute(withCompletion completion: @escaping (UIImage?) -> Void) {

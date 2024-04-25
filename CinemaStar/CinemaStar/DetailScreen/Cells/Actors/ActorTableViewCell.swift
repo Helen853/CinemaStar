@@ -5,11 +5,16 @@ import UIKit
 
 /// Ячейка с актерами
 final class ActorTableViewCell: UITableViewCell {
+    // MARK: - Visual Components
+
     private let nameLabel = UILabel()
     private let languageTitleLabel = UILabel()
     private let languageLabel = UILabel()
     private var collectionView: UICollectionView?
-    var film: FilmsDetail? {
+
+    // MARK: - Private Properties
+
+    private var film: FilmsDetail? {
         didSet {
             collectionView?.reloadData()
         }
@@ -125,6 +130,8 @@ final class ActorTableViewCell: UITableViewCell {
         collectionView?.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     }
 }
+
+// MARK: - Extension ActorTableViewCell + UICollectionViewDataSource
 
 extension ActorTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

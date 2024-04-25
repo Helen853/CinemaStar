@@ -5,9 +5,14 @@ import UIKit
 
 /// Ячейка с катерами
 final class ActorsCollectionViewCell: UICollectionViewCell {
+    // MARK: - Visual Components
+
     private let nameLabel = UILabel()
     private let photoImageView = UIImageView()
-    var imageRequest: ImageRequest?
+
+    // MARK: - Private Properties
+
+    private var imageRequest: ImageRequest?
 
     // MARK: - Initializers
 

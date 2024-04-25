@@ -5,19 +5,33 @@ import UIKit
 
 /// Главный экран с фильмами
 final class MainViewController: UIViewController {
+    // MARK: - Visual Components
+
     private let titleLabel = UILabel()
-    private var films: [Films]? = []
     private var collectionView: UICollectionView?
-    static var shared = MainViewController()
+
+    // MARK: - Public Properties
 
     var mainViewModel: MainViewModelProtocol?
+
+    // MARK: - Private Properties
+
+    private var films: [Films]? = []
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradient()
         mainViewModel?.callService()
-        configureCollection()
+        setupUi()
         setupConstraint()
+        loadFilms()
+    }
+
+    // MARK: - Private Methods
+
+    private func loadFilms() {
         mainViewModel?.filmsLoaded = { [weak self] response in
             self?.films = response
             Task {
@@ -26,6 +40,10 @@ final class MainViewController: UIViewController {
                 }
             }
         }
+    }
+
+    private func setupUi() {
+        configureCollection()
         configureTitle()
     }
 
