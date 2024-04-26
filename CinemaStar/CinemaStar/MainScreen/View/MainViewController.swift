@@ -17,11 +17,14 @@ final class MainViewController: UIViewController {
     // MARK: - Private Properties
 
     private var films: [Films]? = []
+    var token = ProxyTokenService()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        token.createtoken()
+        mainViewModel?.saveToken()
         setGradient()
         mainViewModel?.callService()
         setupUi()

@@ -44,11 +44,11 @@ final class DetailsViewModel {
 // MARK: - Extension DetailsViewModel + DetailsViewModelProtocol
 
 extension DetailsViewModel: DetailsViewModelProtocol {
-    
     // swiftlint:disable all
     func returnStateButton() {
-        if (FavoritesStorageService.shared.favorites
-            .firstIndex(where: { $0.id == idFilm }) != nil) {
+        if FavoritesStorageService.shared.favorites
+            .firstIndex(where: { $0.id == idFilm }) != nil
+        {
             state = .white
             favoritesHandler?(state)
         } else {
@@ -56,14 +56,15 @@ extension DetailsViewModel: DetailsViewModelProtocol {
             favoritesHandler?(state)
         }
     }
+
     // swiftlint:enable all
-    
+
     func saveFavorites(film: FilmDetail) {
         /// Проверка состояния
         switch state {
         case .clear:
             /// Сохраняем в избранное
-           FavoritesStorageService.shared.addFavorites(film)
+            FavoritesStorageService.shared.addFavorites(film)
             /// Меняем стейт
             state = .white
         case .white:
@@ -83,7 +84,7 @@ extension DetailsViewModel: DetailsViewModelProtocol {
     }
 
     func callService() {
-        var resource = FilmsDetailResource(id: idFilm)
+        let resource = FilmsDetailResource(id: idFilm)
         let request = APIRequest(resource: resource)
 
         request.execute { [weak self] movieDTO in

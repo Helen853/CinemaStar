@@ -27,4 +27,6 @@ struct AppConstants {
     static let backButtonName = "back"
     static let favoritesButtonName = "favorites"
     static let fullFavoritesButtonName = "fullFavorites"
+    static let fileName = "token.txt"
+    static let forKeyName = "token"
 }

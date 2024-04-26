@@ -13,6 +13,7 @@ protocol MainViewModelProtocol {
     /// - Parameters:
     /// - id: Идентификатор фильма
     func showDetail(id: Int)
+    func saveToken()
 }
 
 /// ViewModel главного экрана
@@ -34,6 +35,10 @@ final class MainViewModel {
 // MARK: - Extension MainViewModel + MainViewModelProtocol
 
 extension MainViewModel: MainViewModelProtocol {
+    func saveToken() {
+        TokenService.shared.saveToken()
+    }
+
     func showDetail(id: Int) {
         coordinator?.showDetailFilm(id: id)
     }
