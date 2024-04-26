@@ -5,17 +5,17 @@ import Foundation
 
 /// Модель запроса для детального фильма
 struct FilmsDetailResource: APIResource {
-    // тип объекта
+    /// Тип объекта
     typealias ModelType = MovieDTO
 
-    // идентификатор для ресурса запроса
+    /// Идентификатор для ресурса запроса
     var id: Int
 
-    // путь
+    /// Путь
     var methodPath: String {
         "/\(String(describing: id))"
     }
 
-    // парметры запроса
+    /// Парметры запроса
     var queryItems: URLQueryItem?
 }

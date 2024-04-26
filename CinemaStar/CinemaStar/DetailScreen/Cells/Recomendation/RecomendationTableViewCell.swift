@@ -12,7 +12,7 @@ final class RecomendationTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
 
-    private var film: FilmsDetail? {
+    private var film: FilmDetail? {
         didSet {
             collectionView?.reloadData()
         }
@@ -35,7 +35,7 @@ final class RecomendationTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(model: FilmsDetail) {
+    func configureCell(model: FilmDetail) {
         film = model
     }
 

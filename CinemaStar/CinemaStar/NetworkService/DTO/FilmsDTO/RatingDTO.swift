@@ -5,6 +5,6 @@ import Foundation
 
 /// Рейтинг фильма
 struct RatingDTO: Codable {
-    // кол-во
+    /// Кол-во
     let kp: Double
 }

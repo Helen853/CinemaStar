@@ -1,8 +1,6 @@
 // Film.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
-
 /// Данные с фильмами
 final class Films: Decodable, Encodable {
     // MARK: - Public Properties

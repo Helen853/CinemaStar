@@ -16,9 +16,9 @@ protocol APIResource {
 // MARK: - Extension APIResource
 
 extension APIResource {
-    // свойство с конфигурацией ЮРЛзапроса
+    /// Свойство с конфигурацией ЮРЛзапроса
     var url: URL? {
-        // URL-адрес API
+        /// URL-адрес API
         var components = URLComponents(string: "https://api.kinopoisk.dev/v1.4/movie") ?? URLComponents()
         components.path += methodPath
         if let queryItems {

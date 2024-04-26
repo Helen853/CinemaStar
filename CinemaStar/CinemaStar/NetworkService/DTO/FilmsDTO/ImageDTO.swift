@@ -5,6 +5,6 @@ import Foundation
 
 /// Картинка фильма
 struct ImageDTO: Codable {
-    // Юрл картинки
+    /// Адрес на картинку
     let url: String
 }

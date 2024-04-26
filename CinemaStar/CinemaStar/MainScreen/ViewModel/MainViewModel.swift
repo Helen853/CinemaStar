@@ -10,12 +10,14 @@ protocol MainViewModelProtocol {
     /// Загрузка данных
     func callService()
     /// Переход на детальный экран
+    /// - Parameters:
+    /// - id: Идентификатор фильма
     func showDetail(id: Int)
 }
 
 /// ViewModel главного экрана
 final class MainViewModel {
-    var filmsLoaded: (([Films]?) -> Void)?
+    public var filmsLoaded: (([Films]?) -> Void)?
 
     // MARK: - Private Properties
 

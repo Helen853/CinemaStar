@@ -4,27 +4,29 @@
 import Foundation
 
 /// Детальный фильм
-struct FilmsDetail {
-    // Картинка фильма
+struct FilmDetail: Encodable, Decodable {
+    /// Картинка фильма
     let poster: Poster
-    // Наименование
+    /// Наименование
     let name: String
-    // Рейтинг
+    /// Рейтинг
     let rating: Rating
-    // Описание
+    /// Описание
     let description: String
-    // Год
+    /// Год
     let year: Int
-    // Страна происхождения
+    /// Страна происхождения
     let countries: String?
-    // Тип фильма
+    /// Тип фильма
     let type: String
-    // Актеры
+    /// Актеры
     let persons: [Person]?
-    // Язык
+    /// Язык
     let spokenLanguages: [String]?
-    // Рекомендованные фильмы
+    /// Рекомендованные фильмы
     let similarMovies: [SimilarMovie]?
+    /// Идентификатор
+    let id: Int
 
     // MARK: - Initializers
 
@@ -39,22 +41,6 @@ struct FilmsDetail {
         persons = dto.persons
         spokenLanguages = dto.spokenLanguages
         similarMovies = dto.similarMovies
-    }
-}
-
-/// Тип фильма
-enum MovieType: String, Codable {
-    /// фильм
-    case movie
-    /// Сериал
-    case tvSeries
-
-    var typeDescription: String {
-        switch self {
-        case .movie:
-            return "Фильм"
-        case .tvSeries:
-            return "Сериал"
-        }
+        id = dto.id
     }
 }

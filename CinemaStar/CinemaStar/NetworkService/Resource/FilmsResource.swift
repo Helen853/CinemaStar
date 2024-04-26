@@ -5,14 +5,14 @@ import Foundation
 
 /// Модель для запроса фильма
 struct FilmsResource: APIResource {
-    // тип объекта
+    /// Тип объекта
     typealias ModelType = FilmsDTO
 
-    // путь
+    /// Путь
     var methodPath: String {
         "/search"
     }
 
-    // параметры запроса
+    /// Параметры запроса
     var queryItems: URLQueryItem?
 }

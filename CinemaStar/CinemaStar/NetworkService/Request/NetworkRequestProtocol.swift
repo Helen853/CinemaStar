@@ -25,7 +25,7 @@ extension NetworkRequest {
     /// - url: Юрл-адрес запроса
     func getFilms(url: URL, completion: @escaping (ModelType?) -> Void) {
         var request = URLRequest(url: url)
-        request.setValue("ETKDY4P-Q024W58-Q4RRSYJ-Y72CWZR", forHTTPHeaderField: "X-API-KEY")
+        request.setValue("VQZATT4-V09MS5Z-J6PC67V-BBH9J4K", forHTTPHeaderField: "X-API-KEY")
         URLSession.shared.dataTask(with: request) { [self] data, _, _ in
             guard let data = data else { return }
             DispatchQueue.global().async {

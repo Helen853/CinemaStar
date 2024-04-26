@@ -12,6 +12,7 @@ struct AppConstants {
     static let interBold = "Inter-Bold"
 
     static let infoIdentifier = "InfoIdentifier"
+    static let descriptionIdentifier = "DescriptionIdentifier"
     static let actorIdentifier = "ActorIdentifier"
     static let recomendationIdentifier = "CiIdentifier"
     static let actorCollectionIdentifier = "ActorsCollectionViewCell"
@@ -21,4 +22,9 @@ struct AppConstants {
     static let notLanguage = "Язык не установлен"
     static let lookText = "Смотрите также"
     static let reccommenationCollectionIdentifier = "RecommendationCollectionViewCell"
+    static let buttonName = "more"
+    static let upButtonName = "up"
+    static let backButtonName = "back"
+    static let favoritesButtonName = "favorites"
+    static let fullFavoritesButtonName = "fullFavorites"
 }
