@@ -5,53 +5,26 @@ import Foundation
 
 /// Модель для детального фильма
 struct MovieDTO: Codable {
-    // Идентификатор
+    /// Идентификатор
     let id: Int
-    // Картинка фильма
+    /// Картинка фильма
     let poster: Poster
-    // Наименование
+    /// Наименование
     let name: String
-    // Рейтинг
+    /// Рейтинг
     let rating: Rating
-    // Описание
+    /// Описание
     let description: String
-    // Год выпуска
+    /// Год выпуска
     let year: Int
-    // Страна происхождения
+    /// Страна происхождения
     let countries: [Country]
-    // Тип фильма
+    /// Тип фильма
     let type: MovieType
-    // Актеры
+    /// Актеры
     let persons: [Person]?
-    // Язык
+    /// Язык
     let spokenLanguages: [String]?
-    // Рекомендованные фильмы
+    /// Рекомендованные фильмы
     let similarMovies: [SimilarMovie]?
-}
-
-/// Картинка фильма
-struct Poster: Codable {
-    let url: String
-}
-
-/// Cтрана
-struct Country: Codable {
-    let name: String
-}
-
-/// Рейтинг
-struct Rating: Codable {
-    let kp: Double
-}
-
-/// Актеры
-struct Person: Codable {
-    let photo: String
-    let name: String
-}
-
-/// Рекомендации
-struct SimilarMovie: Codable {
-    let name: String
-    let poster: Poster
 }

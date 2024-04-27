@@ -1,14 +1,14 @@
 // CellType.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
-
 /// Енам для типов ячеек экрана деталей фильма
 enum DetailType {
-    // Ячейка с картинкой
+    /// Ячейка с картинкой
     case info
-    // Актеры
+    /// Описание фильма
+    case description
+    /// Актеры
     case actor
-    // Рекомендация
+    /// Рекомендация
     case recomendation
 }

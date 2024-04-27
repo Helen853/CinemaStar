@@ -10,8 +10,8 @@ final class InfoTableViewCell: UITableViewCell {
     private let filmImageView = UIImageView()
     private let nameLabel = UILabel()
     private let button = UIButton()
-    private let descriptionLabel = UILabel()
-    private let infoLabel = UILabel()
+
+    var tappedBottonHandler: VoidHandler?
 
     // MARK: - Private Properties
 
@@ -34,7 +34,7 @@ final class InfoTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(model: FilmsDetail) {
+    func configureCell(model: FilmDetail, closure: VoidHandler?) {
         guard let url = URL(string: model.poster.url) else { return }
         imageRequest = ImageRequest(url: url)
         imageRequest?.execute(withCompletion: { [weak self] image in
@@ -42,9 +42,7 @@ final class InfoTableViewCell: UITableViewCell {
         })
         let rating = String(format: "%.1f", floor(model.rating.kp * 10) / 10)
         nameLabel.text = "\(model.name) \n ⭐️ \(rating)"
-        descriptionLabel.text = model.description
-        guard let country = model.countries else { return }
-        infoLabel.text = "\(model.year)/ \(country)/ \(model.type)"
+        tappedBottonHandler = closure
     }
 
     // MARK: - Private Methods
@@ -54,23 +52,19 @@ final class InfoTableViewCell: UITableViewCell {
         setupImage()
         configureLabel()
         configureButton()
-        configureInfo()
-        configureDescriprion()
     }
 
     private func setupConsctraint() {
         configureImageConstraint()
         configureLabelConstraint()
         configureButtonConstraint()
-        configureDescriptionConstraint()
-        configureInfoConstraint()
     }
 
     private func setupImage() {
         contentView.addSubview(filmImageView)
         filmImageView.clipsToBounds = true
-        filmImageView.contentMode = .scaleAspectFill
         filmImageView.layer.cornerRadius = 8
+        filmImageView.contentMode = .scaleAspectFill
     }
 
     private func configureLabel() {
@@ -103,6 +97,7 @@ final class InfoTableViewCell: UITableViewCell {
         button.backgroundColor = #colorLiteral(red: 0.1066116169, green: 0.3222239017, blue: 0.2897432446, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
+        button.addTarget(self, action: #selector(tappedSee), for: .touchUpInside)
     }
 
     private func configureButtonConstraint() {
@@ -111,36 +106,10 @@ final class InfoTableViewCell: UITableViewCell {
         button.topAnchor.constraint(equalTo: filmImageView.bottomAnchor, constant: 16).isActive = true
         button.widthAnchor.constraint(equalToConstant: 358).isActive = true
         button.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 
-    private func configureDescriprion() {
-        contentView.addSubview(descriptionLabel)
-        descriptionLabel.textColor = .white
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = UIFont(name: AppConstants.inter, size: 14)
-        descriptionLabel.textAlignment = .left
-    }
-
-    private func configureDescriptionConstraint() {
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 16).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        descriptionLabel.widthAnchor.constraint(equalToConstant: 330).isActive = true
-    }
-
-    private func configureInfo() {
-        contentView.addSubview(infoLabel)
-        infoLabel.textColor = .gray
-        infoLabel.font = UIFont(name: AppConstants.interBold, size: 14)
-        infoLabel.textAlignment = .left
-    }
-
-    private func configureInfoConstraint() {
-        infoLabel.translatesAutoresizingMaskIntoConstraints = false
-        infoLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16).isActive = true
-        infoLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        infoLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        infoLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
+    @objc private func tappedSee() {
+        tappedBottonHandler?()
     }
 }

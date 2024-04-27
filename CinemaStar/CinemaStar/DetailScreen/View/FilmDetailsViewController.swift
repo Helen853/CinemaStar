@@ -8,20 +8,25 @@ final class FilmDetailsViewController: UIViewController {
     // MARK: - Visual Components
 
     private let tableView = UITableView()
-    private let cellTypes: [DetailType] = [.info, .actor, .recomendation]
+    private let backButton = UIButton()
+    private let favoritesButton = UIButton()
+    private let cellTypes: [DetailType] = [.info, .description, .actor, .recomendation]
 
     // MARK: - Public Properties
 
     var detailsViewModel: DetailsViewModelProtocol?
+    var tappedTextHandler: VoidHandler?
+    var tappedBottonHandler: VoidHandler?
 
     // MARK: - Private Properties
 
-    private var details: FilmsDetail?
+    private var details: FilmDetail?
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureBar()
         configureTable()
         registerCell()
     }
@@ -30,6 +35,14 @@ final class FilmDetailsViewController: UIViewController {
         super.viewWillAppear(animated)
         detailsViewModel?.callService()
         loadFilms()
+        tappedMoreText()
+        tappedSee()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateColorButton()
+        detailsViewModel?.returnStateButton()
     }
 
     override func viewDidLayoutSubviews() {
@@ -40,7 +53,7 @@ final class FilmDetailsViewController: UIViewController {
     // MARK: - Private Methods
 
     private func loadFilms() {
-        detailsViewModel?.filmsLoaded = { [weak self] response in
+        detailsViewModel?.filmsLoadedHandler = { [weak self] response in
             self?.details = response
             Task {
                 await MainActor.run {
@@ -48,6 +61,50 @@ final class FilmDetailsViewController: UIViewController {
                 }
             }
         }
+    }
+
+    private func tappedMoreText() {
+        tappedTextHandler = { [weak self] in
+            guard let self = self else { return }
+            tableView.beginUpdates()
+            tableView.setNeedsDisplay()
+            tableView.endUpdates()
+        }
+    }
+
+    private func tappedSee() {
+        tappedBottonHandler = { [weak self] in
+            guard let self = self else { return }
+            showAlert()
+        }
+    }
+
+    private func showAlert() {
+        let alert = UIAlertController(title: "Упс!", message: "Функционал в разработке :(", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alert, animated: true)
+    }
+
+    private func updateColorButton() {
+        detailsViewModel?.favoritesHandler = { [weak self] state in
+            guard let self = self else { return }
+            switch state {
+            case .clear:
+                favoritesButton.setImage(UIImage(named: AppConstants.favoritesButtonName), for: .normal)
+            case .white:
+                favoritesButton.setImage(UIImage(named: AppConstants.fullFavoritesButtonName), for: .normal)
+            }
+        }
+    }
+
+    private func configureBar() {
+        backButton.setImage(UIImage(named: AppConstants.backButtonName), for: .normal)
+        let leftBarButton = UIBarButtonItem(customView: backButton)
+        let rightBarButton = UIBarButtonItem(customView: favoritesButton)
+        navigationItem.setRightBarButton(rightBarButton, animated: true)
+        navigationItem.setLeftBarButton(leftBarButton, animated: true)
+        backButton.addTarget(self, action: #selector(tappedBack), for: .touchUpInside)
+        favoritesButton.addTarget(self, action: #selector(tappedSave), for: .touchUpInside)
     }
 
     private func setGradient() {
@@ -81,6 +138,17 @@ final class FilmDetailsViewController: UIViewController {
             RecomendationTableViewCell.self,
             forCellReuseIdentifier: AppConstants.recomendationIdentifier
         )
+        tableView.register(DescriptionTableViewCell.self, forCellReuseIdentifier: AppConstants.descriptionIdentifier)
+    }
+
+    @objc private func tappedBack() {
+        detailsViewModel?.showMainScreen()
+    }
+
+    @objc private func tappedSave() {
+        guard let film = details else { return }
+        detailsViewModel?.saveFavorites(film: film)
+        detailsViewModel?.returnStateButton()
     }
 }
 
@@ -101,7 +169,16 @@ extension FilmDetailsViewController: UITableViewDataSource {
                 for: indexPath
             ) as? InfoTableViewCell else { return UITableViewCell() }
             guard let details else { return cell }
-            cell.configureCell(model: details)
+            cell.configureCell(model: details, closure: tappedBottonHandler)
+            cell.backgroundColor = .clear
+            return cell
+        case .description:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: AppConstants.descriptionIdentifier,
+                for: indexPath
+            ) as? DescriptionTableViewCell else { return UITableViewCell() }
+            guard let details else { return cell }
+            cell.configureCell(model: details, closure: tappedTextHandler)
             cell.backgroundColor = .clear
             return cell
         case .actor:

@@ -5,12 +5,12 @@ import Foundation
 
 /// Фильм
 struct FilmDTO: Codable {
-    // Наименование
+    /// Наименование
     let name: String
-    // Рейтинг
+    /// Рейтинг
     let rating: RatingDTO
-    // Картинка фильма
+    /// Картинка фильма
     let poster: ImageDTO
-    // Идентификатор
+    /// Идентификатор
     let id: Int
 }

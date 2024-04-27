@@ -7,7 +7,7 @@ import UIKit
 final class MainViewController: UIViewController {
     // MARK: - Visual Components
 
-    private let titleLabel = UILabel()
+    private var titleLabel = UILabel()
     private var collectionView: UICollectionView?
 
     // MARK: - Public Properties
@@ -17,16 +17,24 @@ final class MainViewController: UIViewController {
     // MARK: - Private Properties
 
     private var films: [Films]? = []
+    var token = ProxyTokenService()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainViewModel?.saveToken()
         setGradient()
+
         mainViewModel?.callService()
         setupUi()
         setupConstraint()
         loadFilms()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("ko")
     }
 
     // MARK: - Private Methods
@@ -83,7 +91,6 @@ final class MainViewController: UIViewController {
     private func configureCollection() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: setupFlowLayout())
         guard let collectionView = collectionView else { return }
-        view.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsVerticalScrollIndicator = false
@@ -92,6 +99,7 @@ final class MainViewController: UIViewController {
             CinemaCollectionViewCell.self,
             forCellWithReuseIdentifier: AppConstants.cinemaIdentifier
         )
+        view.addSubview(collectionView)
     }
 
     private func configureCollectionConstraint() {
@@ -109,8 +117,8 @@ final class MainViewController: UIViewController {
     }
 
     private func setupConstraint() {
-        configureCollectionConstraint()
         configureTitleConstraint()
+        configureCollectionConstraint()
     }
 }
 

@@ -5,6 +5,6 @@ import Foundation
 
 /// Модель для каталого фильмов
 struct FilmsDTO: Codable {
-    // массив фильмов
+    /// Массив фильмов
     let docs: [FilmDTO]
 }

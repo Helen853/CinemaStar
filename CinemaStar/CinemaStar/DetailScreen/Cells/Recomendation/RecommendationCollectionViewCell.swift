@@ -61,6 +61,7 @@ final class RecommendationCollectionViewCell: UICollectionViewCell {
 
     private func configurePhotoImage() {
         contentView.addSubview(photoImageView)
+        photoImageView.clipsToBounds = true
         photoImageView.layer.cornerRadius = 8
     }
 

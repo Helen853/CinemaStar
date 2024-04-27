@@ -1,0 +1,55 @@
+name: CinemaStar
+settings:
+  # prevent code signing
+  CODE_SIGNING_ALLOWED: NO
+  SWIFT_VERSION: 5.0
+  CURRENT_PROJECT_VERSION: 1.0.0
+  MARKETING_VERSION: 1
+  IPHONEOS_DEPLOYMENT_TARGET: "15.2"
+  ENABLE_USER_SCRIPT_SANDBOXING: false
+  ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS: false
+  ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: false
+  INFOPLIST_KEY_UILaunchScreen_Generation: true
+  GENERATE_INFOPLIST_FILE: true
+options:
+  bundleIdPrefix: ED.CinemaStar
+  deploymentTarget:
+    iOS: "15.2"
+packages:
+  KeychainAccess:
+    url: https://github.com/kishikawakatsumi/KeychainAccess.git
+    majorVersion: 4.2.0
+
+targets:
+  CinemaStar:
+    type: application
+    platform: iOS
+    sources:
+      - CinemaStar
+    dependencies:
+      - package: KeychainAccess
+
+    attributes:
+    postCompileScripts:
+      - script: |
+                if [[ "$(uname -m)" == arm64 ]]; then
+                    export PATH="/opt/homebrew/bin:$PATH"
+                fi
+                if which swiftlint > /dev/null; then
+                    swiftlint
+                else
+                    echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+                    exit 1
+                fi
+        name: SwiftLint
+      - script: |
+                if [[ "$(uname -m)" == arm64 ]]; then
+                    export PATH="/opt/homebrew/bin:$PATH"
+                fi
+                if which swiftformat > /dev/null; then
+                    swiftformat .
+                else
+                    echo "warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat"
+                    exit 1
+                fi
+        name: SwiftFormat

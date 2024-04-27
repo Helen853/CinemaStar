@@ -7,7 +7,7 @@ import UIKit
 final class CinemaCollectionViewCell: UICollectionViewCell {
     // MARK: - Visual Components
 
-    private let imageView = UIImageView()
+    private let posterImageView = UIImageView()
     private let titleLabel = UILabel()
 
     // MARK: - Private Properties
@@ -39,7 +39,7 @@ final class CinemaCollectionViewCell: UICollectionViewCell {
         guard let url = URL(string: model.poster) else { return }
         imageRequest = ImageRequest(url: url)
         imageRequest?.execute(withCompletion: { [weak self] image in
-            self?.imageView.image = image
+            self?.posterImageView.image = image
         })
         let rating = String(format: "%.1f", floor(model.rating * 10) / 10)
         titleLabel.text = "\(model.name) \n ⭐️ \(rating)"
@@ -48,10 +48,10 @@ final class CinemaCollectionViewCell: UICollectionViewCell {
     // MARK: - Private Methods
 
     private func setupImage() {
-        contentView.addSubview(imageView)
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 8
+        contentView.addSubview(posterImageView)
+        posterImageView.clipsToBounds = true
+        posterImageView.contentMode = .scaleAspectFill
+        posterImageView.layer.cornerRadius = 8
     }
 
     private func configureLabel() {
@@ -63,19 +63,19 @@ final class CinemaCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureImageConstraint() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        imageView.isUserInteractionEnabled = true
+        posterImageView.translatesAutoresizingMaskIntoConstraints = false
+        posterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        posterImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        posterImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        posterImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        posterImageView.isUserInteractionEnabled = true
     }
 
     private func configureLabelConstraint() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 8).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 }

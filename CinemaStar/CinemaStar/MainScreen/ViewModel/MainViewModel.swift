@@ -10,12 +10,15 @@ protocol MainViewModelProtocol {
     /// Загрузка данных
     func callService()
     /// Переход на детальный экран
+    /// - Parameters:
+    /// - id: Идентификатор фильма
     func showDetail(id: Int)
+    func saveToken()
 }
 
 /// ViewModel главного экрана
 final class MainViewModel {
-    var filmsLoaded: (([Films]?) -> Void)?
+    public var filmsLoaded: (([Films]?) -> Void)?
 
     // MARK: - Private Properties
 
@@ -32,6 +35,10 @@ final class MainViewModel {
 // MARK: - Extension MainViewModel + MainViewModelProtocol
 
 extension MainViewModel: MainViewModelProtocol {
+    func saveToken() {
+        TokenService.shared.saveToken()
+    }
+
     func showDetail(id: Int) {
         coordinator?.showDetailFilm(id: id)
     }

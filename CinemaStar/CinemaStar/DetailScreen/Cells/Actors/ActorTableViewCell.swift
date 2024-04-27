@@ -14,7 +14,7 @@ final class ActorTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
 
-    private var film: FilmsDetail? {
+    private var film: FilmDetail? {
         didSet {
             collectionView?.reloadData()
         }
@@ -37,7 +37,7 @@ final class ActorTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(model: FilmsDetail) {
+    func configureCell(model: FilmDetail) {
         languageLabel.text = model.spokenLanguages?.first
         film = model
     }
