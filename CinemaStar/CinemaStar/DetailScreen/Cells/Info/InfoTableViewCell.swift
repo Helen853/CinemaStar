@@ -11,6 +11,8 @@ final class InfoTableViewCell: UITableViewCell {
     private let nameLabel = UILabel()
     private let button = UIButton()
 
+    var tappedBottonHandler: VoidHandler?
+
     // MARK: - Private Properties
 
     private var imageRequest: ImageRequest?
@@ -32,7 +34,7 @@ final class InfoTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(model: FilmDetail) {
+    func configureCell(model: FilmDetail, closure: VoidHandler?) {
         guard let url = URL(string: model.poster.url) else { return }
         imageRequest = ImageRequest(url: url)
         imageRequest?.execute(withCompletion: { [weak self] image in
@@ -40,6 +42,7 @@ final class InfoTableViewCell: UITableViewCell {
         })
         let rating = String(format: "%.1f", floor(model.rating.kp * 10) / 10)
         nameLabel.text = "\(model.name) \n ⭐️ \(rating)"
+        tappedBottonHandler = closure
     }
 
     // MARK: - Private Methods
@@ -60,8 +63,8 @@ final class InfoTableViewCell: UITableViewCell {
     private func setupImage() {
         contentView.addSubview(filmImageView)
         filmImageView.clipsToBounds = true
-        filmImageView.contentMode = .scaleAspectFill
         filmImageView.layer.cornerRadius = 8
+        filmImageView.contentMode = .scaleAspectFill
     }
 
     private func configureLabel() {
@@ -94,6 +97,7 @@ final class InfoTableViewCell: UITableViewCell {
         button.backgroundColor = #colorLiteral(red: 0.1066116169, green: 0.3222239017, blue: 0.2897432446, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
+        button.addTarget(self, action: #selector(tappedSee), for: .touchUpInside)
     }
 
     private func configureButtonConstraint() {
@@ -103,5 +107,9 @@ final class InfoTableViewCell: UITableViewCell {
         button.widthAnchor.constraint(equalToConstant: 358).isActive = true
         button.heightAnchor.constraint(equalToConstant: 48).isActive = true
         button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+
+    @objc private func tappedSee() {
+        tappedBottonHandler?()
     }
 }

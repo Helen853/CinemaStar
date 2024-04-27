@@ -52,12 +52,25 @@
 		ECBF8A33BC9235E01B088C28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E13B388E4ED4BA88B299A8F /* Main.storyboard */; };
 		EDA6D5922BDD138C004DC6A0 /* InterBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D5912BDD138C004DC6A0 /* InterBold.ttf */; };
 		EDA6D5942BDD1392004DC6A0 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D5932BDD1392004DC6A0 /* Inter.ttf */; };
+		EDA6D59C2BDD16AC004DC6A0 /* MainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA6D59B2BDD16AC004DC6A0 /* MainUITests.swift */; };
+		EDA6D59E2BDD16AC004DC6A0 /* CinemaStarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA6D59D2BDD16AC004DC6A0 /* CinemaStarUITestsLaunchTests.swift */; };
+		EDA6D5B72BDD27C5004DC6A0 /* FilmDetailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA6D5B52BDD27C5004DC6A0 /* FilmDetailUITests.swift */; };
 		EFA4D8415997ACBAB87C1E44 /* FavoritesStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5500EB16B26E01149D921AD6 /* FavoritesStorageService.swift */; };
 		F8D68E867BA6369F39A9952A /* RatingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4417A2241BB9D8A9553C3 /* RatingDTO.swift */; };
 		FA597891343DB8E6C48E5FF1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5619C5CF6216BA98FC8B6250 /* MainViewModel.swift */; };
 		FCE6AB8D73035AB489E4F597 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FB5CC4AA6827DA04A8E029 /* Country.swift */; };
 		FDB8990964354D77F190DCA0 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DBF16CDD85C2BD13E5A96 /* ApiRequest.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDA6D59F2BDD16AC004DC6A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CC9629BFE91811E759360EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A35F2B2539A577D488098E7;
+			remoteInfo = CinemaStar;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		038DBF16CDD85C2BD13E5A96 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
@@ -109,6 +122,10 @@
 		D9335F45B451BD8A2FB529C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EDA6D5912BDD138C004DC6A0 /* InterBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = InterBold.ttf; path = ../../../../../InterBold.ttf; sourceTree = "<group>"; };
 		EDA6D5932BDD1392004DC6A0 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Inter.ttf; path = ../../../../../Inter.ttf; sourceTree = "<group>"; };
+		EDA6D5992BDD16AC004DC6A0 /* CinemaStarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CinemaStarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDA6D59B2BDD16AC004DC6A0 /* MainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITests.swift; sourceTree = "<group>"; };
+		EDA6D59D2BDD16AC004DC6A0 /* CinemaStarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaStarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EDA6D5B52BDD27C5004DC6A0 /* FilmDetailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailUITests.swift; sourceTree = "<group>"; };
 		FAA4417A2241BB9D8A9553C3 /* RatingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDTO.swift; sourceTree = "<group>"; };
 		FFE0209F107E6CE5351B5395 /* ActorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +136,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA355FF7989BEBEEDCCCB51 /* KeychainAccess in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDA6D5962BDD16AC004DC6A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				07431AC7942ECDE0575C1425 /* CinemaStar.app */,
+				EDA6D5992BDD16AC004DC6A0 /* CinemaStarUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -348,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				E0FCC2D5B4C4553682A860FD /* CinemaStar */,
+				EDA6D59A2BDD16AC004DC6A0 /* CinemaStarUITests */,
 				87AB38A9D266DD69FAA1EA32 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -414,6 +440,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		EDA6D59A2BDD16AC004DC6A0 /* CinemaStarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EDA6D59B2BDD16AC004DC6A0 /* MainUITests.swift */,
+				EDA6D59D2BDD16AC004DC6A0 /* CinemaStarUITestsLaunchTests.swift */,
+				EDA6D5B52BDD27C5004DC6A0 /* FilmDetailUITests.swift */,
+			);
+			path = CinemaStarUITests;
+			sourceTree = "<group>";
+		};
 		FD476D2A8B1EA2C9797C0566 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +483,24 @@
 			productReference = 07431AC7942ECDE0575C1425 /* CinemaStar.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EDA6D5982BDD16AC004DC6A0 /* CinemaStarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDA6D5A12BDD16AC004DC6A0 /* Build configuration list for PBXNativeTarget "CinemaStarUITests" */;
+			buildPhases = (
+				EDA6D5952BDD16AC004DC6A0 /* Sources */,
+				EDA6D5962BDD16AC004DC6A0 /* Frameworks */,
+				EDA6D5972BDD16AC004DC6A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDA6D5A02BDD16AC004DC6A0 /* PBXTargetDependency */,
+			);
+			name = CinemaStarUITests;
+			productName = CinemaStarUITests;
+			productReference = EDA6D5992BDD16AC004DC6A0 /* CinemaStarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -454,7 +508,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					EDA6D5982BDD16AC004DC6A0 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 2A35F2B2539A577D488098E7;
+					};
+				};
 			};
 			buildConfigurationList = 9DF4E5E4ABAF93C6C09C84D9 /* Build configuration list for PBXProject "CinemaStar" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -472,6 +533,7 @@
 			projectRoot = "";
 			targets = (
 				2A35F2B2539A577D488098E7 /* CinemaStar */,
+				EDA6D5982BDD16AC004DC6A0 /* CinemaStarUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -489,11 +551,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDA6D5972BDD16AC004DC6A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		5E9ACF37EF2D93AACB32E303 /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -509,9 +579,11 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\nif which swiftformat > /dev/null; then\n    swiftformat .\nelse\n    echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		B23AD4079C8B1DFA6B4AE7DB /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -527,6 +599,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\nif which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -582,7 +655,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDA6D5952BDD16AC004DC6A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA6D5B72BDD27C5004DC6A0 /* FilmDetailUITests.swift in Sources */,
+				EDA6D59C2BDD16AC004DC6A0 /* MainUITests.swift in Sources */,
+				EDA6D59E2BDD16AC004DC6A0 /* CinemaStarUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDA6D5A02BDD16AC004DC6A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A35F2B2539A577D488098E7 /* CinemaStar */;
+			targetProxy = EDA6D59F2BDD16AC004DC6A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1E13B388E4ED4BA88B299A8F /* Main.storyboard */ = {
@@ -760,6 +851,47 @@
 			};
 			name = Debug;
 		};
+		EDA6D5A22BDD16AC004DC6A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.helendudareva.CinemaStarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CinemaStar;
+			};
+			name = Debug;
+		};
+		EDA6D5A32BDD16AC004DC6A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.helendudareva.CinemaStarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CinemaStar;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		FBAA2BF1338AB6035582F9E1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -798,6 +930,15 @@
 			buildConfigurations = (
 				E8B1ADCA275B343EFC3E7711 /* Debug */,
 				818B65513B0769800D2897C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EDA6D5A12BDD16AC004DC6A0 /* Build configuration list for PBXNativeTarget "CinemaStarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDA6D5A22BDD16AC004DC6A0 /* Debug */,
+				EDA6D5A32BDD16AC004DC6A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

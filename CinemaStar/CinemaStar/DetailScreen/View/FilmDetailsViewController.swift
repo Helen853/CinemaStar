@@ -16,6 +16,7 @@ final class FilmDetailsViewController: UIViewController {
 
     var detailsViewModel: DetailsViewModelProtocol?
     var tappedTextHandler: VoidHandler?
+    var tappedBottonHandler: VoidHandler?
 
     // MARK: - Private Properties
 
@@ -35,6 +36,7 @@ final class FilmDetailsViewController: UIViewController {
         detailsViewModel?.callService()
         loadFilms()
         tappedMoreText()
+        tappedSee()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -68,6 +70,19 @@ final class FilmDetailsViewController: UIViewController {
             tableView.setNeedsDisplay()
             tableView.endUpdates()
         }
+    }
+
+    private func tappedSee() {
+        tappedBottonHandler = { [weak self] in
+            guard let self = self else { return }
+            showAlert()
+        }
+    }
+
+    private func showAlert() {
+        let alert = UIAlertController(title: "Упс!", message: "Функционал в разработке :(", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alert, animated: true)
     }
 
     private func updateColorButton() {
@@ -154,7 +169,7 @@ extension FilmDetailsViewController: UITableViewDataSource {
                 for: indexPath
             ) as? InfoTableViewCell else { return UITableViewCell() }
             guard let details else { return cell }
-            cell.configureCell(model: details)
+            cell.configureCell(model: details, closure: tappedBottonHandler)
             cell.backgroundColor = .clear
             return cell
         case .description:
