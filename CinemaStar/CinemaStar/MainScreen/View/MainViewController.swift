@@ -13,11 +13,11 @@ final class MainViewController: UIViewController {
     // MARK: - Public Properties
 
     var mainViewModel: MainViewModelProtocol?
+    var token = ProxyTokenService()
 
     // MARK: - Private Properties
 
     private var films: [Films]? = []
-    var token = ProxyTokenService()
 
     // MARK: - Life Cycle
 
