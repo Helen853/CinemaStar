@@ -10,27 +10,6 @@ final class ProxyTokenService {
     private var fileManager = FileManager.default
     private var token = String()
 
-    func createtoken() {
-        let manager = FileManager.default
-        guard let url = manager.urls(
-            for: .documentDirectory,
-            in: .userDomainMask
-        ).first else {
-            return
-        }
-
-        let fileUrl = url.appendingPathComponent(AppConstants.fileName)
-        print(fileUrl)
-
-        let data = "VQZATT4-V09MS5Z-J6PC67V-BBH9J4K".data(using: .utf8)
-
-        manager.createFile(
-            atPath: fileUrl.path,
-            contents: data,
-            attributes: [FileAttributeKey.creationDate: Date()]
-        )
-    }
-
     // MARK: - Public Methods
 
     func getToken() -> String? {

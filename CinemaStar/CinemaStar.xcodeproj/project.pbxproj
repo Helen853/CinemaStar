@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -50,6 +50,8 @@
 		EAA57DD3010F3FADC95001C0 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E653A3B21D86792E5D94AB /* DetailsViewModel.swift */; };
 		EC329C1975F7D0A414461AF1 /* StateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC7D22F26357BF149337E84 /* StateButton.swift */; };
 		ECBF8A33BC9235E01B088C28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E13B388E4ED4BA88B299A8F /* Main.storyboard */; };
+		EDA6D5922BDD138C004DC6A0 /* InterBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D5912BDD138C004DC6A0 /* InterBold.ttf */; };
+		EDA6D5942BDD1392004DC6A0 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D5932BDD1392004DC6A0 /* Inter.ttf */; };
 		EFA4D8415997ACBAB87C1E44 /* FavoritesStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5500EB16B26E01149D921AD6 /* FavoritesStorageService.swift */; };
 		F8D68E867BA6369F39A9952A /* RatingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4417A2241BB9D8A9553C3 /* RatingDTO.swift */; };
 		FA597891343DB8E6C48E5FF1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5619C5CF6216BA98FC8B6250 /* MainViewModel.swift */; };
@@ -60,7 +62,7 @@
 /* Begin PBXFileReference section */
 		038DBF16CDD85C2BD13E5A96 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		07042230DE7FC350BB3D1093 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
-		07431AC7942ECDE0575C1425 /* CinemaStar.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CinemaStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07431AC7942ECDE0575C1425 /* CinemaStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		105C8938491D47A15FAD6F90 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		16E26EE06BBD0C6D7DE61C19 /* ProxyTokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyTokenService.swift; sourceTree = "<group>"; };
 		215571BCD0DFC05F2815CB40 /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
@@ -105,6 +107,8 @@
 		D22251DA16ABEA22CA5C2B22 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D41035265B2BE9B579BD619C /* FilmsDetailResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsDetailResource.swift; sourceTree = "<group>"; };
 		D9335F45B451BD8A2FB529C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EDA6D5912BDD138C004DC6A0 /* InterBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = InterBold.ttf; path = ../../../../../InterBold.ttf; sourceTree = "<group>"; };
+		EDA6D5932BDD1392004DC6A0 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Inter.ttf; path = ../../../../../Inter.ttf; sourceTree = "<group>"; };
 		FAA4417A2241BB9D8A9553C3 /* RatingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDTO.swift; sourceTree = "<group>"; };
 		FFE0209F107E6CE5351B5395 /* ActorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -368,6 +372,7 @@
 		E0FCC2D5B4C4553682A860FD /* CinemaStar */ = {
 			isa = PBXGroup;
 			children = (
+				EDA6D5902BDD1364004DC6A0 /* Fonts */,
 				AB364E79BC4D3084C4C13574 /* Info.plist */,
 				1369A8ED29310522C0896855 /* Coordinaters */,
 				73A2118C852524B1982094A3 /* CoreData */,
@@ -398,6 +403,15 @@
 				2ABD416D01AF0E9AE6B83911 /* NetworkRequestProtocol.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		EDA6D5902BDD1364004DC6A0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EDA6D5912BDD138C004DC6A0 /* InterBold.ttf */,
+				EDA6D5932BDD1392004DC6A0 /* Inter.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		FD476D2A8B1EA2C9797C0566 /* ViewModel */ = {
@@ -441,8 +455,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 9DF4E5E4ABAF93C6C09C84D9 /* Build configuration list for PBXProject "CinemaStar" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -469,6 +481,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDA6D5922BDD138C004DC6A0 /* InterBold.ttf in Resources */,
+				EDA6D5942BDD1392004DC6A0 /* Inter.ttf in Resources */,
 				E3D4751D1F48F80915BC4680 /* Assets.xcassets in Resources */,
 				38612C1086E7E5A1AA8614E4 /* LaunchScreen.storyboard in Resources */,
 				ECBF8A33BC9235E01B088C28 /* Main.storyboard in Resources */,
@@ -658,13 +672,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = CinemaStar/CinemaStar.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CinemaStar/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ED.CinemaStar.CinemaStar;
+				PRODUCT_BUNDLE_IDENTIFIER = CinemaStar;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -745,13 +764,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = CinemaStar/CinemaStar.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CinemaStar/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ED.CinemaStar.CinemaStar;
+				PRODUCT_BUNDLE_IDENTIFIER = CinemaStar;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

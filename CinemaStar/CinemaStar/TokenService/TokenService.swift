@@ -15,8 +15,6 @@ final class TokenService {
         guard let tokenSaved = manager.getToken() else { return }
         do {
             try? keychain.set(tokenSaved, key: AppConstants.forKeyName)
-        } catch {
-            print(error.localizedDescription)
         }
         print(keychain.allKeys)
     }
@@ -25,6 +23,8 @@ final class TokenService {
         do {
             guard let token = try keychain.get(AppConstants.forKeyName) else { return nil }
             self.token = token
+
+            print(token)
         } catch {
             print(error.localizedDescription)
         }
