@@ -29,4 +29,5 @@ struct AppConstants {
     static let fullFavoritesButtonName = "fullFavorites"
     static let fileName = "token.txt"
     static let forKeyName = "token"
+    static let headerName = "X-API-KEY"
 }
